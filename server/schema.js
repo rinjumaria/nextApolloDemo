@@ -13,7 +13,7 @@ module.exports = new GraphQLSchema({
       name: {
         type: GraphQLString,
         resolve() {
-          return faker.name.findName()
+          return faker.name.fullName()
         }
       }
     }

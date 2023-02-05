@@ -1,15 +1,9 @@
-import React from 'react'
-import Link from 'next/link'
-import Name from '../components/Name'
+import Layout from '../components/layout'
 
-const app = () => {
+export default function App({ Component, pageProps }) {
   return (
-    <div>
-    Welcome, <Name />
-    <br/><br/>
-    <Link href="/about">About Next</Link>
-  </div>
+    <Layout>
+      <Component {...pageProps} />
+    </Layout>
   )
 }
-
-export default app
