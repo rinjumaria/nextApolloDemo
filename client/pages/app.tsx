@@ -1,9 +1,11 @@
-import Layout from '../components/layout'
-
+import Link from 'next/link'
+import Name from '../components/Name'
 export default function App() {
   return (
     <div>
-     
+      Welcome, <Name />
+    <br/><br/>
+    <Link href="/about">About</Link>
     </div>
   )
 }
