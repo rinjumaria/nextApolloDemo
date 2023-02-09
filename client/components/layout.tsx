@@ -1,12 +1,6 @@
-import Navbar from './navbar'
-import Footer from './footer'
-
-export default function Layout({ children }) {
-  return (
-    <>
-      <Navbar />
-      <main>{children}</main>
-      <Footer />
-    </>
-  )
-}
+import React from 'react';interface Props {
+  name: string
+}const Layout: React.FC<Props> = ({ name }) => (
+  <p>Hello there, {name}</p>
+)
+export default Layout;

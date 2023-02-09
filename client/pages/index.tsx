@@ -7,7 +7,7 @@ export default  function Home() {
   return(
     <React.StrictMode>
       <ApolloProvider client={WithApollo}>
-      <App />
+      <App/>
       </ApolloProvider>
     </React.StrictMode>
    )
