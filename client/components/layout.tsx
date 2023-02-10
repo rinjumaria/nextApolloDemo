@@ -1,6 +1,5 @@
-import React from 'react';interface Props {
-  name: string
-}const Layout: React.FC<Props> = ({ name }) => (
-  <p>Hello there, {name}</p>
-)
-export default Layout;
+import styles from './layout.module.css';
+
+export default function Layout({ children }) {
+  return <div className={styles.container}>{children}</div>;
+}

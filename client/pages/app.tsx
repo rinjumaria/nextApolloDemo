@@ -5,7 +5,7 @@ export default function App() {
     <div>
       Welcome, <Name />
     <br/><br/>
-    <Link href="/about">About</Link>
+    <Link href="/gridName">Name Data</Link>
     </div>
   )
 }
