@@ -7,27 +7,24 @@ import CardContent from '@mui/material/CardContent';
 import Button from '@mui/material/Button';
 import Typography from '@mui/material/Typography';
 import Grid from '@mui/material/Grid';
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
-const data = ["a", "b", "c", "d","e","f","g","h","i","j"];
+const data = ["a", "b", "c", "d","e","f","g","h","i","j","a", "b", "c", "d","e","f","g","h","i","j","a", "b", "c", "d","e","f","g","h","i","j"];
+const dataPerLoad = 20;
 
-
-
-
-
-export default function GridName() {
+export default function GridName({ }) {
   const refs = useRef([]);
-
-  useEffect(() => {
-    console.log(refs);
-  }, []);
+  const [next, setNext] = useState(dataPerLoad);
+  const handleMoreData = () => {
+      setNext(next + dataPerLoad);
+    };  
 
   return (
     <Layout>
       <Grid container rowSpacing={1} columnSpacing={{ xs: 1, sm: 2, md: 3 }}>
-        {data.map((d, i) => (
-          <Grid item xs={8} key={i} ref={(ref) => (refs.current[i] = ref)}>
-            <Box sx={{ maxWidth: 250 }}>
+        {data?.slice(0, next)?.map((d, i) => (
+          <Grid item  key={i} ref={(ref) => (refs.current[i] = ref)} xs={3}>
+            <Box sx={{ maxWidth: 350 }}>
               <Card variant="outlined">
                   <React.Fragment>
                     <CardContent>
@@ -46,14 +43,22 @@ export default function GridName() {
                         CM144EQ
                       </Typography>
                     </CardContent>
-                    <CardActions>
+                    {/* <CardActions>
                       <Button size="small">Load More</Button>
-                    </CardActions>
+                    </CardActions> */}
                   </React.Fragment>
               </Card>
             </Box>
           </Grid>   
         ))}
+              {next < data?.length && (
+          <Button
+            className="mt-4"
+            onClick={handleMoreData}
+          >
+            Load more
+          </Button>
+        )}
       </Grid>
     </Layout>
   );
